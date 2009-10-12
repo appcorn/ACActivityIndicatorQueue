@@ -27,3 +27,8 @@ To queue activity just use the two static methods from any part/thread of your a
 	}
 
 Your Network Activity Indicator will correctly reflect the status of network activity, even if you atempt to show and hide the indicator from different parts of the code asynchronous.
+
+License
+-------------------------
+
+ACActivityIndicatorQueue is released under the MIT-license (see the LICENSE file)

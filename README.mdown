@@ -1,0 +1,29 @@
+ACActivityIndicatorQueue
+=========================
+
+This simple class provieds a convinient way of queueing the visibility state of the Network Activity Indicator on the iPhone.
+
+Usage
+-------------------------
+
+To queue activity just use the two static methods from any part/thread of your application:
+
+	- (void)makeRESTCall {
+		// First request
+		[ACActivityIndicatorQueue startActivity];
+		[NSURLConnection connectionWithRequest:request1 delegate:self];
+		
+		// Seccond request
+		[ACActivityIndicatorQueue startActivity];
+		[NSURLConnection connectionWithRequest:request2 delegate:self];
+	}
+	
+	- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+		[ACActivityIndicatorQueue endActivity];
+	}
+	
+	- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+		[ACActivityIndicatorQueue endActivity];
+	}
+
+Your Network Activity Indicator will correctly reflect the status of network activity, even if you atempt to show and hide the indicator from different parts of the code asynchronous.

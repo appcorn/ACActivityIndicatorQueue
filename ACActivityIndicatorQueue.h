@@ -67,6 +67,8 @@
 
 + (void)endActivity;
 
++ (void)resetAndStopActivity;
+
 
 # pragma mark --- Custom methods ---
 
@@ -77,5 +79,7 @@
 /* Decrease the queue with one and hide the activity indicator if needed */
 
 - (void)removeFromIndicatorQueue;
+
+- (void)resetInditicatorQueue;
 
 @end

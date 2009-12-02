@@ -67,6 +67,10 @@
 
 + (void)endActivity;
 
+/* Convinience-method to reset the queue.
+   See - resetInditicatorQueue for more information
+   (Thanks Jens! http://github.com/jk/ACActivityIndicatorQueue/commit/ec7b411cda39acc04969c03b25fabcc41d962bfc) */
+
 + (void)resetAndStopActivity;
 
 
@@ -79,6 +83,9 @@
 /* Decrease the queue with one and hide the activity indicator if needed */
 
 - (void)removeFromIndicatorQueue;
+
+/* Reset the queue, forcing the activity indicator to be hidden immediately
+   (Thanks Jens! http://github.com/jk/ACActivityIndicatorQueue/commit/ec7b411cda39acc04969c03b25fabcc41d962bfc) */
 
 - (void)resetInditicatorQueue;
 

@@ -25,8 +25,14 @@ To queue activity just use the two static methods from any part/thread of your a
 	- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 		[ACActivityIndicatorQueue endActivity];
 	}
+	
+	- (void)cancelAllRequestsButtonPressed:(id)sender {
+		[ACActivityIndicatorQueue resetAndStopActivity];
+	}
 
 Your Network Activity Indicator will correctly reflect the status of network activity, even if you atempt to show and hide the indicator from different parts of the code asynchronous.
+
+The resetAndStopActivity method will reset the queue forcing the indicator to be hidden immediately. (Thanks Jens!  jk@ec7b411cda39acc04969c03b25fabcc41d962bfc)
 
 License
 -------------------------

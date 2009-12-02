@@ -89,6 +89,11 @@ static ACActivityIndicatorQueue *activityIndicatorQueue = nil;
 	[instace removeFromIndicatorQueue];
 }
 
++ (void)resetAndStopActivity {
+	ACActivityIndicatorQueue *instance = [ACActivityIndicatorQueue sharedInstance];
+	[instance resetInditicatorQueue];
+}
+
 
 # pragma mark --- Custom Methods ---
 
@@ -108,6 +113,11 @@ static ACActivityIndicatorQueue *activityIndicatorQueue = nil;
 		// Last removal from the queue, hide the activity indicator
 		application.networkActivityIndicatorVisible = NO;
 	}
+}
+
+- (void)resetInditicatorQueue {
+	indicatorQueue = 0;
+	application.networkActivityIndicatorVisible = NO;
 }
 
 @end

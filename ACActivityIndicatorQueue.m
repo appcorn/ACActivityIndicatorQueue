@@ -35,8 +35,6 @@
 
 # pragma mark --- SharedInstance Pattern ---
 
-static ACActivityIndicatorQueue *activityIndicatorQueue = nil;
-
 + (ACActivityIndicatorQueue *)sharedInstance {
 	static ACActivityIndicatorQueue *sharedInstance;
 	
@@ -49,7 +47,7 @@ static ACActivityIndicatorQueue *activityIndicatorQueue = nil;
 # pragma mark --- Initialization ---
 
 - (id)init {
-	[super init];
+	self = [super init];
 	
 	application = [UIApplication sharedApplication];
 	indicatorQueue = 0;

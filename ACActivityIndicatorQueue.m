@@ -33,37 +33,18 @@
 @implementation ACActivityIndicatorQueue
 
 
-# pragma mark --- Singelton Methods ---
+# pragma mark --- SharedInstance Pattern ---
 
 static ACActivityIndicatorQueue *activityIndicatorQueue = nil;
 
 + (ACActivityIndicatorQueue *)sharedInstance {
-	if(activityIndicatorQueue == nil) {
-		activityIndicatorQueue = [[self alloc] init];
+	static ACActivityIndicatorQueue *sharedInstance;
+	
+	@synchronized(self) {
+		sharedInstance = [[ACActivityIndicatorQueue alloc] init];
 	}
-	return activityIndicatorQueue;
+	return sharedInstance;
 }
-
-- (id)copyWithZone:(NSZone *)zone {
-    return activityIndicatorQueue;
-}
-
-- (id)retain {
-    return activityIndicatorQueue;
-}
-
-- (unsigned)retainCount {
-    return UINT_MAX; 
-}
-
-- (id)autorelease {
-    return activityIndicatorQueue;
-}
-
-- (void)release {
-	// Do nothing
-}
-
 
 # pragma mark --- Initialization ---
 
